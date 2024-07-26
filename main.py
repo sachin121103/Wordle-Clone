@@ -1,6 +1,6 @@
 GUESSES = 6 # Hard-coded. Should not change
 count = 1
-Word_of_the_day = 'CRANE'
+Word_of_the_day = 'AWASH'
 
 while count <= GUESSES:
     word_list = list(Word_of_the_day)
@@ -15,7 +15,9 @@ while count <= GUESSES:
         else:
             for i in range(0,len(word_list)):
                 if word_list[i] == guess_list[i]:
-                    print(f"The letter {word_list[i]} is in the main word")
+                    print(f"The letter {word_list[i]} is in the main word at the position {i+1}")
+                elif guess_list[i] in word_list:
+                    print(f"The letter {guess_list[i]} is in the main word at a different position")
                 else:
                     print(f"The letter {guess_list[i]} is not in the main word")
             
