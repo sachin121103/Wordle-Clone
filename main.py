@@ -3,9 +3,9 @@ count = 1
 Word_of_the_day = 'AWASH'
 
 while count <= GUESSES:
-    word_list = list(Word_of_the_day)
+    word_list = list(Word_of_the_day) # ['A', 'W', 'A', 'S', 'H']
     
-    guess = input("Enter your guess here: ").upper()
+    guess = input("\nEnter your guess here: ").upper()
     guess_list = list(guess)
     
     if len(guess_list)== 5:
@@ -13,8 +13,9 @@ while count <= GUESSES:
             print(f"You got the word right in {count} guesses")
             break
         else:
+            print('\n')
             for i in range(0,len(word_list)):
-                if word_list[i] == guess_list[i]:
+                if guess_list[i] == word_list[i]:
                     print(f"The letter {word_list[i]} is in the main word at the position {i+1}")
                 elif guess_list[i] in word_list:
                     print(f"The letter {guess_list[i]} is in the main word at a different position")
@@ -27,4 +28,5 @@ while count <= GUESSES:
 
     
 
-    
+if count >= 6:
+    print("\nYou ran out of guesses. Game Over.")
