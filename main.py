@@ -1,11 +1,13 @@
 from words import word_dict
+import random
 
 GUESSES = 6 # Hard-coded. Should not change
 count = 1
-Word_of_the_day = 'AWASH'
+Word_of_the_day = random.choice(word_dict)
+print(Word_of_the_day)
 
 while count <= GUESSES:
-    word_list = list(Word_of_the_day) # ['A', 'W', 'A', 'S', 'H']
+    word_list = list(Word_of_the_day)
     
     guess = input("\nEnter your guess here: ").upper()
     guess_list = list(guess)
@@ -28,7 +30,6 @@ while count <= GUESSES:
     else:
         print("Enter a valid word")
 
-    
 
-if count >= 6:
-    print("\nYou ran out of guesses. Game Over.")
+if count > 6:
+    print(f"\nYou ran out of guesses. The actual word was {Word_of_the_day}. Game Over.")
