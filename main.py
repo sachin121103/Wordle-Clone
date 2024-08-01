@@ -12,13 +12,13 @@ def show_guess(guess_list, word_list):
 
     """The role of this function is to process the guess and compare it with the original word"""
 
-    for i in range(0,len(word_list)):
-        if guess_list[i] == word_list[i]:
-            print(f"The letter {word_list[i]} is in the main word at the position {i+1}")
-        elif guess_list[i] in word_list:
-            print(f"The letter {guess_list[i]} is in the main word at a different position")
-        else:
-            print(f"The letter {guess_list[i]} is not in the main word")
+    correct_letters = {letter for letter, correct in zip(guess_list, word_list) if letter == correct}
+    misplaced_letters = set(guess_list) & set(word_list) - correct_letters
+    wrong_letters = set(guess_list) - set(word_list)
+
+    print(f"The correct letters are: {" ,".join(correct_letters)}")
+    print(f"The misplaced letters are: {" , ".join(misplaced_letters)}")
+    print(f"The wrong letters are: {" , ".join(wrong_letters)}")
 
 def intro_game():
     """This function introduces the game itself and how it is to be played."""
