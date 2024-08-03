@@ -1,11 +1,12 @@
 import contextlib
 import random
 from string import ascii_letters, ascii_uppercase
-from words import word_dict
+from words import word_gen
 from rich.console import Console
 from rich.theme import Theme
 
-console = Console(width=40, theme=Theme({"warning": "red on black"}))
+word_dict = word_gen()
+console = Console(width=70, theme=Theme({"warning": "red on black"}))
 
 LETTERS = 5
 GUESSES = 6
